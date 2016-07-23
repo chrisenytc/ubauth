@@ -13,12 +13,10 @@ export default (app, window, access_token) => {
         $scope.copy = () => {
             clipboard.writeText(access_token);
 
-            let notification = new notifier.NotificationCenter();
-
-            notification.notify({
+            notifier.notify({
                 title: 'Success',
                 message: 'Copied to clipboard.',
-                appIcon: path.join(__dirname, '..', '..', 'assets', 'images', 'icon.png')
+                icon: path.join(__dirname, '..', '..', 'assets', 'images', 'icon.png')
             });
         };
     }]);
