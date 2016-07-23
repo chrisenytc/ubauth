@@ -27,6 +27,6 @@
     "pretest": "gulp build --env=test",
     "test": "electron-mocha build --renderer",
     "install-native": "node ./tasks/install_native_module",
-    "clear": "rm -rf /Users/$USERNAME/Library/Application Support/UbAuth Dev && /Users/$USERNAME/Library/Application Support/UbAuth"
+    "clear": "rm -rf '/Users/chrisenytc/Library/Application Support/UbAuth Dev' && rm -rf '/Users/chrisenytc/Library/Application Support/UbAuth'"
   }
 }
