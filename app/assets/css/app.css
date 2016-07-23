@@ -1,0 +1,108 @@
+button {
+  -webkit-app-region: no-drag;
+}
+
+label {
+  color: #ffffff;
+}
+
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.background {
+  background: url(../images/background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+}
+
+.text-danger {
+    color: #c81717
+}
+
+.alert-message {
+	display: block;
+	padding: 13px 12px 12px;
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+	background-color: #2ba6cb;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 12px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+	position: relative;
+}
+
+.alert-message .box-icon {
+	display: block;
+	float: left;
+	background-image: url('../images/icons.png');
+	width: 30px;
+	height: 25px;
+	margin-top: -2px;
+	background-position: -8px -8px;
+}
+
+.alert-message p {
+	margin: 0px;
+}
+
+.alert-message.success {
+	background-color: #5da423;
+	color: #fff;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.alert-message.success .box-icon {
+	background-position: -48px -8px;
+}
+
+.alert-message.warning {
+	background-color: #e3b000;
+	color: #fff;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.alert-message.warning .box-icon {
+	background-position: -88px -8px;
+}
+
+.alert-message.error {
+	background-color: #c60f13;
+	color: #fff;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.alert-message.error .box-icon {
+	background-position: -128px -8px;
+}
+
+.alert-message a.close {
+	color: #333;
+	position: absolute;
+	right: 4px;
+	top: -1px;
+	font-size: 17px;
+	opacity: 0.2;
+	padding: 4px;
+}
+
+.alert-message a.close:hover, .alert-box a.close:focus {
+	opacity: 0.4;
+}
