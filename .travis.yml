@@ -1,5 +1,13 @@
-language: node_js
-node_js:
-  - '6.3.0'
-before_script:
-  - export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start
+os:
+  - linux
+  - osx
+
+env:
+  - NODE_VERSION="6.3.0"
+
+script: ./bin/travis.sh
+
+cache:
+  directories:
+    - node_modules
+    - app/node_modules
