@@ -16,9 +16,9 @@ export default (app, window) => {
                 //Build the OAuth consent page URL
                 let authWindow = new BrowserWindow({
                     minWidth: 600,
-                    minHeight: 830,
+                    minHeight: 835,
                     width: 600,
-                    height: 830,
+                    height: 835,
                     show: true,
                     center: true,
                     resizable: true,
