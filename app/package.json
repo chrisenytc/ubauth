@@ -7,8 +7,9 @@
   "copyright": "© 2016, Christopher EnyTC",
   "main": "background.js",
   "dependencies": {
+    "angular": "^1.5.8",
     "fs-jetpack": "^0.9.0",
-    "angular": "^1.5.8"
+    "node-notifier": "^4.6.0"
   },
   "packageNameTemplate": "{{name}}-v{{version}}-{{platform}}-{{arch}}",
   "osx": {
