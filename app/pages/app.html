@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>UbAuth</title>
+
+    <link href="../assets/css/photon.css" rel="stylesheet">
+    <link href="../assets/css/app.css" rel="stylesheet">
+
+    <script src="../helpers/context_menu.js"></script>
+    <script src="../helpers/external_links.js"></script>
+
+    <script src="../app.js"></script>
+
+    <script type="text/ng-template" id="auth.html">
+        <div ng-controller="authCtrl" class="padded-more text-center">
+            <form name="authForm" novalidate>
+                <div class="form-group">
+                    <label><strong>Client ID</strong></label>
+                    <input type="text" class="form-control" name="client_id" ng-model="options.client_id" required>
+                    <p ng-show="authForm.client_id.$invalid && !authForm.client_id.$pristine">
+                    <strong class="text-danger">Client ID is required!</strong>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label><strong>Client Secret</strong></label>
+                    <input type="text" class="form-control" name="client_secret" ng-model="options.client_secret" required>
+                    <p ng-show="authForm.client_secret.$invalid && !authForm.client_secret.$pristine">
+                    <strong class="text-danger">Client Secret is required!</strong>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label><strong>Redirect Url</strong></label>
+                    <input type="text" class="form-control" name="redirect_url" ng-model="options.redirect_url" required>
+                    <p ng-show="authForm.redirect_url.$invalid && !authForm.redirect_url.$pristine">
+                    <strong class="text-danger">Redirect Url is required!</strong>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label><strong>Scopes</strong></label>
+                    <input type="text" class="form-control" name="scope" ng-model="options.scope" required>
+                    <p ng-show="authForm.scope.$invalid && !authForm.scope.$pristine">
+                    <strong class="text-danger">Scopes is required!</strong>
+                    </p>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-large btn-form btn-positive" ng-click="submit()">Authorize</button>
+                </div>
+            </form>
+        </div>
+    </script>
+</head>
+<body style="-webkit-app-region: drag">
+    <!-- View -->
+    <div class="window background">
+        <div class="padded-more padded-top-more text-center">
+            <img src="../assets/images/icon.png" alt="UbAuth" width="150px" height="150px">
+        </div>
+
+        <div ng-include="'auth.html'">
+    </div>
+
+    <!-- Main Application -->
+    <script type="text/javascript">
+        window.angular = require('angular');
+        window.App = angular.module('UbAuth', []);
+        //Require
+        require('../src/services/uber.factory')(App, window);
+        require('../src/controllers/auth.ctrl')(App, window);
+        /// Bootstrap
+        angular.element(document).ready(() => {
+            angular.bootstrap(document, ['UbAuth']);
+        });
+    </script>
+</body>
+</html>

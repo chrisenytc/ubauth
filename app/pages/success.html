@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>UbAuth</title>
+
+    <link href="../assets/css/photon.css" rel="stylesheet">
+    <link href="../assets/css/app.css" rel="stylesheet">
+
+    <script src="../helpers/context_menu.js"></script>
+    <script src="../helpers/external_links.js"></script>
+
+    <script src="../app.js"></script>
+    <script type="text/ng-template" id="success.html">
+        <div ng-controller="successCtrl" class="padded-more padded-top-more">
+            <div class="alert-message success">
+                <div class="box-icon"></div>
+                <p>Access token generated successfully.</p>
+            </div>
+
+            <form name="tokenForm" class="padded-top">
+                <div class="form-group">
+                    <input type="text" class="form-control-large" name="access_token" ng-model="access_token">
+                </div>
+                <div class="form-actions text-center">
+                    <button class="btn btn-large btn-form btn-primary" ng-click="copy()">Copy to clipboard</button>
+                </div>
+            </form>
+        </div>
+    </script>
+</head>
+<body style="-webkit-app-region: drag">
+    <!-- View -->
+    <div class="window background">
+        <div class="padded-more padded-top-more text-center">
+            <img src="../assets/images/icon.png" alt="UbAuth" width="150px" height="150px">
+        </div>
+
+        <div ng-include="'success.html'">
+    </div>
+
+    <!-- Main Application -->
+    <script type="text/javascript">
+        let ipcRenderer = require('electron').ipcRenderer;
+        window.angular = require('angular');
+        window.App = angular.module('UbAuth', []);
+
+        ipcRenderer.on('show-access-token', (event, access_token) =>{
+            //Require
+            require('../src/controllers/success.ctrl')(App, window, access_token);
+            /// Bootstrap
+            angular.bootstrap(document, ['UbAuth']);
+        });
+    </script>
+</body>
+</html>
