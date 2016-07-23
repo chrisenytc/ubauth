@@ -63,7 +63,8 @@ var bundleSpecs = function () {
 
 var bundleTask = function () {
     if (utils.getEnvName() === 'test') {
-        return bundleSpecs();
+        return bundleApplication()
+            .then(bundleSpecs());
     }
     return bundleApplication();
 };
