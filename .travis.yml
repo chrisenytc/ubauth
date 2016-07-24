@@ -26,4 +26,4 @@ deploy:
   on:
     tags: true
 after_deploy:
-  - "echo \"Version ${APP_VERSION} deployed successfully. \O/\""
+  - "echo \"Version ${APP_VERSION} deployed successfully.\""
