@@ -1,15 +1,17 @@
 os:
   - osx
+language:
+  - objective-c
 osx_image: xcode7.3
-language: node_js
-node_js:
-  - 6.3.1
+env:
+  - NODE_VERSION="6.3.0"
 cache:
   directories:
   - node_modules
   - app/node_modules
 before_install:
-    - brew install jq
+  - brew update
+  - brew outdated jq || brew upgrade jq
 install:
   - script/install.sh
 before_deploy:
