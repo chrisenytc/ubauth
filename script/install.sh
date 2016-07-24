@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+brew update
+brew outdated jq || brew upgrade jq
+
 if [[ "$TRAVIS" == true ]]; then
   NVM_ROOT="${HOME}/.nvm"
   rm -rf "$NVM_ROOT"
@@ -14,9 +17,4 @@ else
   overcommit --install
 fi
 
-
- cd app || exit
-
- npm install
-
- cd .. || exit
+npm install
