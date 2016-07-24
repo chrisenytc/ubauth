@@ -4,8 +4,8 @@
 // window from here.
 
 import { app, dialog, ipcMain, Menu } from 'electron';
-import { devMenuTemplate } from './helpers/dev_menu_template';
-import { editMenuTemplate } from './helpers/edit_menu_template';
+import devMenuTemplate from './helpers/dev_menu_template';
+import appMenuTemplate from './helpers/app_menu_template';
 import createWindow from './helpers/window';
 
 // Special module holding environment letiables which you declared
@@ -17,7 +17,7 @@ let pkg = require('./package.json');
 let mainWindow;
 
 let setApplicationMenu = () => {
-    let menus = [editMenuTemplate];
+    let menus = appMenuTemplate;
     if (env.name !== 'production') {
         menus.push(devMenuTemplate);
     }
