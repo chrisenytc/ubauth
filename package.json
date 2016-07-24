@@ -25,10 +25,10 @@
   },
   "scripts": {
     "postinstall": "script/install.sh",
-    "build": "gulp build",
-    "release": "gulp release --env=production",
-    "start": "gulp start",
-    "pretest": "gulp build --env=test",
+    "build": "./node_modules/.bin/gulp build",
+    "release": "./node_modules/.bin/gulp release --env=production",
+    "start": "./node_modules/.bin/gulp start",
+    "pretest": "./node_modules/.bin/gulp build --env=test",
     "test": "script/test.sh",
     "install-native": "node ./tasks/install_native_module",
     "clear": "rm -rf '/Users/chrisenytc/Library/Application Support/UbAuth Dev' && rm -rf '/Users/chrisenytc/Library/Application Support/UbAuth'"
