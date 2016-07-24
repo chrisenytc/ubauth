@@ -1,9 +1,5 @@
-os:
-  - osx
+os: osx
 sudo: false
-language: ruby
-ruby:
-  - 2.3.1
 osx_image: xcode7.3
 env:
   - NODE_VERSION="6.3.0"
@@ -13,7 +9,8 @@ cache:
   - app/node_modules
 install:
   - script/install.sh
-script: script/test.sh
+script:
+  - script/test.sh
 before_deploy:
   - script/deploy.sh
   - "echo \"Package file: ${RELEASED_PACKAGE_FILENAME}\""
