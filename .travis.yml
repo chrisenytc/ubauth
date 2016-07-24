@@ -12,6 +12,7 @@ install:
 script:
   - npm test
 before_deploy:
+  - script/keychain.sh
   - script/deploy.sh
   - echo Package file -> ${RELEASED_PACKAGE_FILENAME}
 deploy:
