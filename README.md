@@ -45,7 +45,7 @@ $ npm run release -- --sign identity_here
 
 ## Screenshot
 
-[![Screenshot](resources/screenshot.png)]()
+[![Screenshot](resources/screenshot.png)](https://raw.githubusercontent.com/chrisenytc/ubauth/master/resources/screenshot.png)
 
 ## Downloads
 
