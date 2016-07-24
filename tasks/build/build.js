@@ -1,16 +1,16 @@
 'use strict';
 
-var pathUtil = require('path');
 var Q = require('q');
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var batch = require('gulp-batch');
-var plumber = require('gulp-plumber');
 var jetpack = require('fs-jetpack');
+var asar = require('asar');
 
 var bundle = require('./bundle');
 var generateSpecImportsFile = require('./generate_spec_imports');
 var utils = require('../utils');
+var pkg = require('../../app/package.json');
 
 var projectDir = jetpack;
 var srcDir = projectDir.cwd('./app');
@@ -34,24 +34,33 @@ gulp.task('clean', function () {
     return destDir.dirAsync('.', { empty: true });
 });
 
-
 var copyTask = function () {
     return projectDir.copyAsync('app', destDir.path(), {
             overwrite: true,
             matching: paths.copyFromAppDir
         });
 };
-gulp.task('copy', ['clean'], copyTask);
-gulp.task('copy-watch', copyTask);
 
+gulp.task('copy', ['clean'], copyTask);
+gulp.task('copy-watch', ['copy', 'generate']);
+
+var generateTask = function () {
+    var deferred = Q.defer();
+    asar.createPackage(destDir.path(), destDir.path(pkg.productName + '.asar'), function() {
+        deferred.resolve();
+    });
+    return deferred.promise;
+};
+
+gulp.task('generate', ['copy'], generateTask);
 
 var bundleApplication = function () {
     return Q.all([
             bundle(srcDir.path('background.js'), destDir.path('background.js')),
             bundle(srcDir.path('app.js'), destDir.path('app.js')),
-            bundle(srcDir.path('src/services/uber.factory.js'), destDir.path('src/services/uber.factory.js')),
-            bundle(srcDir.path('src/controllers/auth.ctrl.js'), destDir.path('src/controllers/auth.ctrl.js')),
-            bundle(srcDir.path('src/controllers/success.ctrl.js'), destDir.path('src/controllers/success.ctrl.js')),
+            bundle(srcDir.path('src', 'controllers', 'auth.js'), destDir.path('controllers', 'auth.js')),
+            bundle(srcDir.path('src', 'controllers', 'success.js'), destDir.path('controllers', 'success.js')),
+            bundle(srcDir.path('src', 'services', 'uber.js'), destDir.path('services', 'uber.js'))
         ]);
 };
 
@@ -63,20 +72,19 @@ var bundleSpecs = function () {
 
 var bundleTask = function () {
     if (utils.getEnvName() === 'test') {
-        return bundleApplication()
-            .then(bundleSpecs());
+        return bundleSpecs()
+            .then(bundleApplication());
     }
     return bundleApplication();
 };
 
 gulp.task('bundle', ['clean'], bundleTask);
-gulp.task('bundle-watch', bundleTask);
+gulp.task('bundle-watch', ['bundle']);
 
 gulp.task('environment', ['clean'], function () {
     var configFile = 'config/env_' + utils.getEnvName() + '.json';
     projectDir.copy(configFile, destDir.path('env.json'));
 });
-
 
 gulp.task('package-json', ['clean'], function () {
     var manifest = srcDir.read('package.json', 'json');
@@ -91,7 +99,6 @@ gulp.task('package-json', ['clean'], function () {
     destDir.write('package.json', manifest);
 });
 
-
 gulp.task('watch', function () {
     watch('app/**/*.js', batch(function (events, done) {
         gulp.start('bundle-watch', done);
@@ -101,5 +108,4 @@ gulp.task('watch', function () {
     }));
 });
 
-
-gulp.task('build', ['bundle', 'copy', 'environment', 'package-json']);
+gulp.task('build', ['bundle', 'environment', 'package-json', 'generate']);
