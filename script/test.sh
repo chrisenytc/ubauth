@@ -10,4 +10,8 @@ export NODE_PATH=$NODE_EXEC_PATH
 
 echo "Running tests"
 
-electron-mocha build --ui bdd --timeout 80000 --reporter spec --inline-diffs --bail build
+istanbul cover electron-mocha -- --ui bdd --timeout 80000 --reporter spec --inline-diffs --bail build
+
+if [ -f coverage/lcov.info ]; then
+    codeclimate-test-reporter < coverage/lcov.info
+fi
