@@ -17,9 +17,9 @@ addons:
     packages:
     - g++-4.8
 install:
-  - bin/install.sh
+  - script/install.sh
 before_deploy:
-  - bin/deploy.sh
+  - script/deploy.sh
 deploy:
   provider: releases
   api_key:
