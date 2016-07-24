@@ -24,7 +24,7 @@ deploy:
   on:
     tags: true
 after_deploy:
-  - echo App deployed to GitHub releases successfully.
+  - App deployed to GitHub releases successfully.
 addons:
     code_climate:
         repo_token: 46f180c24d35db4d6b082aa5511a76d7f00af72909889d96cd6e8ed41a099e79
