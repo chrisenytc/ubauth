@@ -32,7 +32,7 @@ PreCommit:
       enabled: true
   EsLint:
     enabled: true
-    command: ["eslint", "**/*.js"]
+    command: ["eslint", "--config .eslintrc.yml", "--ignore-path .eslintignore", "."]
 PostCommit:
   GitGuilt:
     enabled: false
