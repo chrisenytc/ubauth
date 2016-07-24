@@ -2,7 +2,7 @@
 
 npm run release -- --sign "$CODESIGN_KEY"
 
-PKG=$(cat ./app/package.json)
+PKG=$(cat "$TRAVIS_BUILD_DIR"/app/package.json)
 
 VERSION=$(echo "$PKG" | jq '.version')
 
