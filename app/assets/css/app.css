@@ -1,4 +1,4 @@
-button {
+button, input, p {
   -webkit-app-region: no-drag;
 }
 
