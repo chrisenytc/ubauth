@@ -23,7 +23,7 @@
     "angular": "^1.5.8",
     "fs-jetpack": "^0.9.0"
   },
-  "packageNameTemplate": "{{name}}-{{platform}}-{{arch}}",
+  "packageNameTemplate": "{{name}}-{{version}}-{{platform}}-{{arch}}",
   "osx": {
     "build": "1",
     "identifier": "com.enytc.ubauth",
