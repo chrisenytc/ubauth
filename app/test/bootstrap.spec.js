@@ -35,12 +35,6 @@ describe("Bootstrap", function() {
                 .should.eventually.be.true;
         });
 
-        it('should have width equals to \'350px\' and height equals to \'830\'', function() {
-            return this.app.client
-                .browserWindow.getBounds().should.eventually.have.property('width').and.be.equal(350)
-                .browserWindow.getBounds().should.eventually.have.property('height').and.be.equal(830)
-        });
-
         it('should have title equals to \'' + pkg.productName + '\'', function() {
             return this.app.client.browserWindow.getTitle()
                 .should.eventually.be.equal(pkg.productName);
