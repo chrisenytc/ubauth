@@ -12,6 +12,8 @@ import createWindow from './helpers/window';
 // in config/env_xxx.json file.
 import env from './env';
 
+let pkg = require('./package.json');
+
 let mainWindow;
 
 let setApplicationMenu = () => {
@@ -50,6 +52,8 @@ app.on('ready', () => {
         height: 830,
         titleBarStyle: 'hidden'
     });
+
+    mainWindow.setTitle(pkg.productName);
 
     mainWindow.webContents.on('crashed', () => {
         return handleError('An unexpected error has occurred.', mainWindow);
