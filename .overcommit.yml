@@ -28,6 +28,8 @@ PreCommit:
       enabled: true
   JsonSyntaxSyntax:
     enabled: true
+  YamlSyntax:
+    enabled: true
   TravisLint:
       enabled: true
   EsLint:
