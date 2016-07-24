@@ -3,6 +3,12 @@
   rules: {}
   env:
     es6: true
-    shared-node-browser: true
+    amd: true
+    node: true
+    browser: true
     mocha: true
   extends: "eslint:recommended"
+  ecmaFeatures:
+    sourceType: "module"
+  parserOptions:
+    sourceType: "module"
