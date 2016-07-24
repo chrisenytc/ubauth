@@ -1,0 +1,8 @@
+---
+  root: true
+  rules: {}
+  env:
+    es6: true
+    shared-node-browser: true
+    mocha: true
+  extends: "eslint:recommended"
