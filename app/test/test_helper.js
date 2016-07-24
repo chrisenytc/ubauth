@@ -10,22 +10,24 @@ chai.should();
 
 beforeEach(function () {
     let appPath = path.join(__dirname, '..', 'build');
+
     this.app = new Application({
         path: electron,
         args: [appPath],
         startTimeout: 8000,
         chromeDriverLogPath: '/tmp/chromedriver.log',
         nodePath: process.env.NODE_PATH
-    })
-    return this.app.start()
+    });
+
+    return this.app.start();
 });
 
 beforeEach(function () {
-    chaiAsPromised.transferPromiseness = this.app.transferPromiseness
+    chaiAsPromised.transferPromiseness = this.app.transferPromiseness;
 });
 
 afterEach(function () {
     if (this.app && this.app.isRunning()) {
-        return this.app.stop()
+        return this.app.stop();
     }
 });
