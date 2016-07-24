@@ -1,0 +1,38 @@
+CommitMsg:
+  SingleLineSubject:
+    enabled: true
+  MessageFormat:
+    enabled: false
+  RussianNovel:
+    enabled: true
+  HardTabs:
+      enabled: true
+  EmptyMessage:
+      enabled: true
+  CapitalizedSubject:
+      enabled: true
+  TrailingPeriod:
+      enabled: true
+PreCommit:
+  AuthorEmail:
+    enabled: true
+  AuthorName:
+    enabled: true
+  BrokenSymlinks:
+    enabled: true
+  CaseConflicts:
+      enabled: true
+  MergeConflicts:
+      enabled: true
+  ShellCheck:
+      enabled: true
+  JsonSyntaxSyntax:
+    enabled: true
+  TravisLint:
+      enabled: true
+  EsLint:
+    enabled: true
+    command: ["eslint", "**/*.js"]
+PostCommit:
+  GitGuilt:
+    enabled: false
