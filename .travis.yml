@@ -14,6 +14,7 @@ install:
   - script/install.sh
 before_deploy:
   - script/deploy.sh
+  - "Package file: ${RELEASED_PACKAGE_FILENAME}"
 deploy:
   provider: releases
   api_key:
@@ -24,3 +25,5 @@ deploy:
   overwrite: true
   on:
     tags: true
+after_deploy:
+  - "Version ${APP_VERSION} deployed successfully. \O/"
