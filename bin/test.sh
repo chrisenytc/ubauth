@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-  export DISPLAY=:99.0
+  export DISPLAY=":99.0"
   sh -e /etc/init.d/xvfb start +extension RANDR
-  sleep 3
+  sleep 8
 fi
 
 NODE_EXEC_PATH=$(which node)
