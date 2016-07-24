@@ -46,7 +46,7 @@
 
         ipcRenderer.on('show-access-token', (event, access_token) =>{
             //Require
-            require('../src/controllers/success.ctrl')(App, window, access_token);
+            require('../controllers/success')(App, window, access_token);
             /// Bootstrap
             angular.bootstrap(document, ['UbAuth']);
         });

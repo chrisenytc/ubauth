@@ -65,8 +65,8 @@
         window.angular = require('angular');
         window.App = angular.module('UbAuth', []);
         //Require
-        require('../src/services/uber.factory')(App, window);
-        require('../src/controllers/auth.ctrl')(App, window);
+        require('../services/uber')(App, window);
+        require('../controllers/auth')(App, window);
         /// Bootstrap
         angular.element(document).ready(() => {
             angular.bootstrap(document, ['UbAuth']);
