@@ -17,7 +17,7 @@
 	},
   "license": "MIT",
   "private": true,
-  "copyright": "© 2016, Christopher EnyTC",
+  "copyright": "Copyright © 2016 Christopher EnyTC. \nAll rights reserved.",
   "main": "background.js",
   "dependencies": {
     "angular": "^1.5.8",
