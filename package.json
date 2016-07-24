@@ -29,7 +29,7 @@
     "release": "gulp release --env=production",
     "start": "gulp start",
     "pretest": "gulp build --env=test",
-    "test": "bin/test.sh",
+    "test": "script/test.sh",
     "install-native": "node ./tasks/install_native_module",
     "clear": "rm -rf '/Users/chrisenytc/Library/Application Support/UbAuth Dev' && rm -rf '/Users/chrisenytc/Library/Application Support/UbAuth'"
   }
