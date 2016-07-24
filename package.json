@@ -1,0 +1,29 @@
+{
+  "name": "ubauth-site",
+  "version": "1.0.0",
+  "title": "UbAuth",
+  "homepage": "http://ubauth.enytc.com",
+  "description": "UbAuth website",
+  "private": true,
+  "author": {
+    "name": "Christopher EnyTC",
+    "url": "http://chris.enytc.com",
+    "email": "chris@enytc.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chrisenytc/ubauth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisenytc/ubauth/issues"
+  },
+  "licenses": "CC_by_3.0",
+  "scripts": {
+    "test": "echo \"No have tests\"",
+    "start": "serve -p 3000 -f favicon.ico"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^1.4.0"
+  }
+}
