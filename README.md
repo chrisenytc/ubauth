@@ -45,7 +45,7 @@ $ npm run release -- --sign identity_here
 
 ## Downloads
 
-**UbAuth** is available for macOS. Download [here](https://github.com/chrisenytc/ubauth/releases).
+**UbAuth** is available for macOS. Download [here](https://github.com/chrisenytc/ubauth/releases/latest).
 
 ## Donate
 
