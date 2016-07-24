@@ -2,14 +2,13 @@
  * Service: Uber
  */
 
-import fs from 'fs';
 import crypto from 'crypto';
 import querystring from 'querystring';
 import { remote, ipcRenderer } from 'electron';
 
 const BrowserWindow = remote.BrowserWindow;
 
-export default (app, window) => {
+export default (app) => {
     return app.factory('Uber', ($http) => {
         return {
             authorize: (options) => {
@@ -68,12 +67,10 @@ export default (app, window) => {
                     return $http(request_data)
                         .success((data, status) => {
                             if (status === 200) {
-                                console.log(data);
                                 return ipcRenderer.send('load-success-page', data.access_token);
                             }
                         })
-                        .error((data) => {
-                            console.log(data);
+                        .error(() => {
                             return ipcRenderer.send('open-error-dialog');
                         });
                 };
@@ -85,7 +82,6 @@ export default (app, window) => {
 
                     if (!code && error) {
                         // Close the browser if has an error
-                        console.log(error);
                         authWindow.destroy();
                         return ipcRenderer.send('open-error-dialog');
                     }

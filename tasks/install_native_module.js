@@ -92,5 +92,5 @@ ensureElectronRebuildInstalled()
 .then(installNativeModule)
 .then(runRebuild)
 .catch(function (err) {
-    console.error(err);
+    console.error(err); // eslint-disable-line no-console
 });

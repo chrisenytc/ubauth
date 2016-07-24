@@ -1,14 +1,10 @@
-import path from 'path';
+import './test_helper';
 import env from '../env';
-import { use, expect } from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-
-use(chaiAsPromised);
 
 describe('Environment', () => {
 
     it('environment variables should be on their place', () => {
-        return expect(env.name).to.equal('test');
+        return env.name.should.be.equal('test');
     });
 
 });

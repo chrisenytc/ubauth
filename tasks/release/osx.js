@@ -115,6 +115,7 @@ var signApp = function () {
 
         cmds.push('productbuild --component "' + finalAppDir.path() + '" /Applications --sign "' + MASInstallerIdentity + '" "' + releasesDir.path(manifest.productName + '.pkg') + '"');
 
+        /* eslint-disable */
         var result = new Q();
         cmds.forEach(function (cmd) {
             result = result.then(function(result) {
@@ -126,6 +127,7 @@ var signApp = function () {
             return new Q();
         });
         return result;
+        /* eslint-disable */
 
     } else if (identity) {
         var cmd = 'codesign --deep --force --sign "' + identity + '" "' + finalAppDir.path() + '"';
@@ -167,7 +169,7 @@ var packToDmgFile = function () {
         target: readyDmgPath
     })
     .on('error', function (err) {
-        console.error(err);
+        console.error(err); // eslint-disable-line no-console
     })
     .on('finish', function () {
         gulpUtil.log('DMG file ready!', readyDmgPath);
@@ -191,5 +193,5 @@ module.exports = function () {
         .then(signApp)
         .then(packToDmgFile)
         .then(cleanClutter)
-        .catch(console.error);
+        .catch(console.error); // eslint-disable-line no-console
 };

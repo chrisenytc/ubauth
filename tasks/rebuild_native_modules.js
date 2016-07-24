@@ -4,7 +4,6 @@
 'use strict';
 
 var path = require('path');
-var Q = require('q');
 var electron = require('electron-prebuilt');
 var electronPackage = require('electron-prebuilt/package.json');
 var rebuild = require('electron-rebuild');
@@ -17,7 +16,7 @@ rebuild.shouldRebuildNativeModules(electron)
         return true;
     }
 
-    console.log('Rebuilding native modules for Electron...');
+    console.log('Rebuilding native modules for Electron...'); // eslint-disable-line no-console
 
     return rebuild.installNodeHeaders(electronPackage.version)
     .then(function () {
@@ -25,9 +24,9 @@ rebuild.shouldRebuildNativeModules(electron)
     });
 })
 .then(function () {
-    console.log('Rebuilding complete.');
+    console.log('Rebuilding complete.'); // eslint-disable-line no-console
 })
 .catch(function (err) {
-    console.error("Rebuilding error!");
-    console.error(err);
+    console.error("Rebuilding error!"); // eslint-disable-line no-console
+    console.error(err); // eslint-disable-line no-console
 });

@@ -132,5 +132,5 @@ module.exports = function () {
         .then(renameApp)
         .then(createInstaller)
         .then(cleanClutter)
-        .catch(console.error);
+        .catch(console.error); // eslint-disable-line no-console
 };

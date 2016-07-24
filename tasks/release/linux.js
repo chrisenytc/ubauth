@@ -91,9 +91,9 @@ var packToDebFile = function () {
     childProcess.exec('fakeroot dpkg-deb -Zxz --build ' + packDir.path().replace(/\s/g, '\\ ') + ' ' + debPath.replace(/\s/g, '\\ '),
         function (error, stdout, stderr) {
             if (error || stderr) {
-                console.log('ERROR while building DEB package:');
-                console.log(error);
-                console.log(stderr);
+                console.log('ERROR while building DEB package:'); // eslint-disable-line no-console
+                console.log(error); // eslint-disable-line no-console
+                console.log(stderr); // eslint-disable-line no-console
             } else {
                 gulpUtil.log('DEB package ready!', debPath);
             }
@@ -115,5 +115,5 @@ module.exports = function () {
         .then(renameApp)
         .then(packToDebFile)
         .then(cleanClutter)
-        .catch(console.error);
+        .catch(console.error); // eslint-disable-line no-console
 };
