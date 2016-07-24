@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 brew update
-brew outdated jq || brew upgrade jq
+brew install jq
 
 if [[ "$TRAVIS" == true ]]; then
   NVM_ROOT="${HOME}/.nvm"
