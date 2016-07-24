@@ -1,0 +1,22 @@
+/* TEAM */
+
+EnyTC: Christopher EnyTC.
+Site: http://chris.enytc.com
+Twitter: @chrisenytc
+Location: Stockholm, Sweden
+[...]
+
+
+
+/* THANKS */
+
+Name: UbAuth.Enytc.com
+[...]
+
+
+
+/* SITE */
+
+Last update: 2016/07/24
+Standards: HTML5, CSS3, JavaScript.
+Software: MacVim, Make.
