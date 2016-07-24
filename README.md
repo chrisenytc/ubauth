@@ -43,6 +43,10 @@ $ npm test
 $ npm run release -- --sign identity_here
 ```
 
+## Screenshot
+
+[![Screenshot](resources/screenshot.png)]()
+
 ## Downloads
 
 **UbAuth** is available for macOS. Download [here](https://github.com/chrisenytc/ubauth/releases/latest).
