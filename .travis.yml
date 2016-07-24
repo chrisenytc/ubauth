@@ -18,7 +18,8 @@ deploy:
   provider: releases
   api_key:
     secure: niIOlK6vmmH1VRDICCr+swpNmJ4Lo70/8eipPvxNCwp74S4ubqSfoxLmibWgDCCrkNZFXLLOqy515AOee20JcECEPdh+nWA/sF9eRyfGgtCrmfi+B3LlDxvJoR37e9wvoVSHkqV8VcCa0a3r3xkCkYAp3yxt2U/08x4PR/qS7AqaYVDrzJgniegLjwGm7BQNwaB87gW0It5TOTGg3/nVsnCFPQI/cyza/3TARFSsrOUtX4/mjtOhrbQyrJUkRsoC8SXYUKd9BX16jax1rPZPWMpOqGNJ6eug+5DU+OmirK+eUbX6rV3e1yEtnlxKqJ0bpE2sh9b/ZgZnFZC73sLqS0oquqm9NnmNKul1RXaxLuP7qoPgO8uQ2ekBXeDqMIB6mUNlLQiH5MEZv+6o9QLDFmF/6SVXLwe5wXLTceTbTcC11q8B69Stvguj0WdidYsnNEanrxdZy2vGjK54YLy1iMriB4Cen+XDOcSlWwqLevVVxvMWLRV+Up8RP0px9pqDFiVBs7wxDKrMfP/Ru2X/UtJuPRmXkeY6gq6Nw9j9DqSV2I1YCxpEi/dxyCXYRI0w8zkV6e1R6SiXGHTuI+jEsJReD9Bblj8Ne0rNfeMXNGKNKE4CTlxIUDOMyTz9QWCrPjlh62c7T5tYqdgsu40alidUfqokyeptQZDqaehZ0X8=
-  file: "${TRAVIS_BUILD_DIR}/releases/ubauth-${APP_VERSION}-darwin-x64.dmg"
+  file_glob: true
+  file: "${RELEASED_PACKAGE_FILENAME}"
   skip_cleanup: true
   overwrite: true
   on:
