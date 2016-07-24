@@ -3,7 +3,20 @@
   "productName": "UbAuth",
   "description": "A desktop app to help developers create access tokens for Uber applications with OAuth 2.0.",
   "version": "1.0.0",
-  "author": "Christopher EnyTC <chris@enytc.com>",
+  "homepage": "https://github.com/chrisenytc/ubauth",
+	"author": {
+		"name": "Christopher EnyTC",
+		"email": "chris@enytc.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/chrisenytc/ubauth.git"
+	},
+	"bugs": {
+		"url": "https://github.com/chrisenytc/ubauth/issues"
+	},
+  "license": "MIT",
+  "private": true,
   "copyright": "© 2016, Christopher EnyTC",
   "main": "background.js",
   "dependencies": {
@@ -11,7 +24,7 @@
     "fs-jetpack": "^0.9.0",
     "node-notifier": "^4.6.0"
   },
-  "packageNameTemplate": "{{name}}-v{{version}}-{{platform}}-{{arch}}",
+  "packageNameTemplate": "{{name}}-{{platform}}-{{arch}}",
   "osx": {
     "build": "1",
     "identifier": "com.enytc.ubauth",
