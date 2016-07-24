@@ -27,11 +27,6 @@
   "osx": {
     "build": "1",
     "identifier": "com.enytc.ubauth",
-    "LSApplicationCategoryType": "public.app-category.developer-tools",
-    "//codeSignIdentitiy": {
-      "dmg": "Developer ID Application: Christopher EnyTC (APPIDENTITY)",
-      "MAS": "3rd Party Mac Developer Application: Christopher EnyTC (APPIDENTITY)",
-      "MASInstaller": "3rd Party Mac Developer Installer: Christopher EnyTC (APPIDENTITY)"
-    }
+    "LSApplicationCategoryType": "public.app-category.developer-tools"
   }
 }
