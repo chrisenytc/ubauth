@@ -8,24 +8,42 @@ import { devMenuTemplate } from './helpers/dev_menu_template';
 import { editMenuTemplate } from './helpers/edit_menu_template';
 import createWindow from './helpers/window';
 
-// Special module holding environment variables which you declared
+// Special module holding environment letiables which you declared
 // in config/env_xxx.json file.
 import env from './env';
 
-var mainWindow;
+let mainWindow;
 
-var setApplicationMenu = () => {
-    var menus = [editMenuTemplate];
+let setApplicationMenu = () => {
+    let menus = [editMenuTemplate];
     if (env.name !== 'production') {
         menus.push(devMenuTemplate);
     }
     Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
 };
 
+let handleError = (win, msg) => {
+    const options = {
+        type: 'info',
+        title: 'Error',
+        message: msg,
+        buttons: ['Reload', 'Close']
+    }
+
+    dialog.showMessageBox(options, (index) => {
+        if (index === 0) {
+            win.reload();
+        }
+        else {
+            win.close();
+        }
+    })
+};
+
 app.on('ready', () => {
     setApplicationMenu();
 
-    var mainWindow = createWindow('main', {
+    let mainWindow = createWindow('main', {
         minWidth: 300,
         minHeight: 700,
         width: 350,
@@ -33,14 +51,22 @@ app.on('ready', () => {
         titleBarStyle: 'hidden'
     });
 
+    mainWindow.webContents.on('crashed', () => {
+        return handleError('An unexpected error has occurred.', mainWindow);
+    });
+
+    mainWindow.on('unresponsive', () => {
+        return handleError('The app is not responding.', mainWindow);
+    });
+
     mainWindow.loadURL('file://' + __dirname + '/pages/app.html');
 
-    if (env.name !== 'production') {
+    if (env.name == 'development') {
         mainWindow.openDevTools({ mode: 'detach' });
         require('devtron').install();
     }
 
-    ipcMain.on('open-error-dialog', (event) => {
+    ipcMain.on('open-error-dialog', () => {
         dialog.showErrorBox('Error', 'Oops! Something went wrong and we couldn\'t log you in using Uber. Please try again.');
     });
 
@@ -54,4 +80,8 @@ app.on('ready', () => {
 
 app.on('window-all-closed', () => {
     app.quit();
+});
+
+process.on('uncaughtException', () => {
+   return handleError('Oops! Something went wrong.', mainWindow);
 });
