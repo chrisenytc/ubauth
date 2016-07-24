@@ -45,11 +45,15 @@ gulp.task('copy', ['clean'], copyTask);
 gulp.task('copy-watch', ['copy', 'generate']);
 
 var generateTask = function () {
-    var deferred = Q.defer();
-    asar.createPackage(destDir.path(), destDir.path(pkg.productName + '.asar'), function() {
-        deferred.resolve();
-    });
-    return deferred.promise;
+    if (utils.getEnvName() != 'production') {
+        var deferred = Q.defer();
+        asar.createPackage(destDir.path(), destDir.path(pkg.productName + '.asar'), function() {
+            deferred.resolve();
+        });
+        return deferred.promise;
+    }
+
+    return;
 };
 
 gulp.task('generate', ['copy'], generateTask);
