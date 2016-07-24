@@ -4,7 +4,7 @@
 
 ## Status
 
-# [![Build Status](https://img.shields.io/travis/chrisenytc/ubauth/master.svg?maxAge=2592000g)](http://travis-ci.org/chrisenytc/ubauth) [![Github All Releases](https://img.shields.io/github/downloads/chrisenytc/ubauth/total.svg?maxAge=2592000)](https://github.com/chrisenytc/ubauth/releases) [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?maxAge=2592000)]() [![GitHub release](https://img.shields.io/github/release/chrisenytc/ubauth.svg?maxAge=2592000)](https://github.com/chrisenytc/ubauth/releases/latest) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/chrisenytc/ubauth/blob/master/LICENSE) [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/intent/tweet?text=Awesome%20https://github.com/chrisenytc/ubauth%20via%20@chrisenytc)
+# [![Build Status](https://img.shields.io/travis/chrisenytc/ubauth/master.svg?maxAge=2592000g)](http://travis-ci.org/chrisenytc/ubauth) [![Github All Releases](https://img.shields.io/github/downloads/chrisenytc/ubauth/total.svg?maxAge=2592000)](https://github.com/chrisenytc/ubauth/releases) [![Maintenance](https://img.shields.io/maintenance/yes/2016.svg?maxAge=2592000)]() [![Code Climate](https://codeclimate.com/github/chrisenytc/ubauth/badges/gpa.svg)](https://codeclimate.com/github/chrisenytc/ubauth) [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/chrisenytc/ubauth/blob/master/LICENSE) [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/intent/tweet?text=Awesome%20https://github.com/chrisenytc/ubauth%20via%20@chrisenytc)
 
 ## Getting Started
 
