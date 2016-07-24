@@ -24,7 +24,7 @@
     "rcedit": "^0.5.0"
   },
   "scripts": {
-    "postinstall": "bin/install.sh",
+    "postinstall": "script/install.sh",
     "build": "gulp build",
     "release": "gulp release --env=production",
     "start": "gulp start",
