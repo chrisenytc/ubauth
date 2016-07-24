@@ -25,7 +25,10 @@ let template = [
     {
         role: 'help',
         submenu: [
-            { label: 'Learn More', click() { shell.openExternal('http://ubauth.enytc.com'); } },
+            { label: 'Donate', click() { shell.openExternal('https://github.com/chrisenytc/ubauth#donate'); } },
+            { label: 'Author', click() { shell.openExternal('https://github.com/chrisenytc'); } },
+            { label: 'Contribute', click() { shell.openExternal('https://github.com/chrisenytc/ubauth#contributing'); } },
+            { label: 'Learn More', click() { shell.openExternal('http://ubauth.enytc.com'); } }
         ]
     },
 ];
