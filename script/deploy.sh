@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#npm run release -- --sign "$CODESIGN_KEY"
+npm run release -- --sign "$CODESIGN_KEY"
 
 PKG=$(cat ./app/package.json)
 
