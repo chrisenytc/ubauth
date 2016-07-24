@@ -10,7 +10,7 @@ cache:
 install:
   - script/install.sh
 script:
-  - script/test.sh
+  - npm test
 before_deploy:
   - script/deploy.sh
   - "echo \"Package file: ${RELEASED_PACKAGE_FILENAME}\""
